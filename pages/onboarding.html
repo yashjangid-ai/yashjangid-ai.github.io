@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner With Vow &amp; Co. | Vendor Onboarding &amp; Profile Portal</title>
+  <meta name="description" content="Grow your wedding business with Vow & Co. Join over 2,400+ handpicked royal venues, photographers, and caterers across India.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .step-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-surface-subtle);
+      border: 2px solid var(--color-border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-right: 12px;
+    }
+    .partner-hero {
+      background: linear-gradient(135deg, #783B49 0%, #3D1C24 100%);
+      color: #FFFFFF;
+      padding: 64px 0;
+      border-radius: var(--radius-large);
+      margin-bottom: 48px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-logo">
+        <span class="brand-name">Vow &amp; Co.</span>
+        <span class="brand-tagline">Curated Indian Weddings</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="vendors.html" class="nav-link">Find Vendors</a>
+        <a href="planner.html" class="nav-link">Wedding Planner</a>
+        <a href="inspiration.html" class="nav-link">Inspiration &amp; Muhurat</a>
+        <a href="shortlist.html" class="nav-link">
+          Shortlist <span class="nav-badge shortlist-badge-count">0</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="onboarding.html" class="btn btn-outline btn-sm active" style="border-color: var(--color-primary); color: var(--color-primary);">Partner Portal</a>
+        <a href="auth.html" class="btn btn-primary btn-sm header-cta">Couple Sign In</a>
+        <button class="menu-toggle" aria-label="Toggle navigation drawer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div class="drawer-header">
+      <span class="brand-name" style="font-size: 1.4rem;">Vow &amp; Co.</span>
+      <button class="drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="drawer-links">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="vendors.html" class="nav-link">Explore All Vendors</a>
+      <a href="planner.html" class="nav-link">Checklist &amp; Budget Planner</a>
+      <a href="inspiration.html" class="nav-link">Wedding Ideas &amp; Muhurats</a>
+      <a href="onboarding.html" class="nav-link">Vendor Partnership</a>
+    </div>
+  </aside>
+
+  <main class="section-sm">
+    <div class="container">
+      
+      <!-- Partner Hero Banner (Reimagined from Screenshot 1 & 2) -->
+      <div class="partner-hero">
+        <div class="container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center;">
+          <div>
+            <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-secondary);">Vow &amp; Co. Partner Alliance</span>
+            <h1 style="color: #FFFFFF; margin: 12px 0 16px; font-size: clamp(2rem, 3.5vw, 2.9rem);">Grow Your Wedding Business with High-Intent HNW Couples</h1>
+            <p style="color: rgba(255, 255, 255, 0.85); font-size: 1.05rem; line-height: 1.6; max-width: 520px; margin-bottom: 24px;">
+              Join India's premier curated marketplace. Zero listing junk, guaranteed client verification, direct escrow advances, and concierge promotion.
+            </p>
+            <div style="display: flex; gap: 32px;">
+              <div>
+                <div style="font-size: 1.8rem; font-weight: 700; color: #FFFFFF;">2,400+</div>
+                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.7);">Verified Partners</div>
+              </div>
+              <div>
+                <div style="font-size: 1.8rem; font-weight: 700; color: #FFFFFF;">₹180 Cr+</div>
+                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.7);">Bookings Generated</div>
+              </div>
+              <div>
+                <div style="font-size: 1.8rem; font-weight: 700; color: #FFFFFF;">48 Hrs</div>
+                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.7);">Verification Turnaround</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Onboarding Registration Form -->
+          <div class="card" style="padding: 32px; background: #FFFFFF; color: var(--color-text);">
+            <h3 style="font-size: 1.4rem; margin-bottom: 6px;">Register as a Partner</h3>
+            <p class="text-muted text-sm" style="margin-bottom: 20px;">Complete step 1 to access your business management suite.</p>
+            
+            <form id="partner-register-form" onsubmit="handlePartnerRegister(event)">
+              <div class="form-group">
+                <label class="form-label">Business / Brand Name</label>
+                <input type="text" id="p-name" class="form-control" placeholder="e.g. Royal Haveli Banquets" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number (WhatsApp Active)</label>
+                <input type="tel" id="p-phone" class="form-control" placeholder="+91 98765 43210" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Service Specialty</label>
+                <select id="p-cat" class="form-control" required>
+                  <option value="">Select your service category...</option>
+                  <option value="venues">Wedding Venue / Resort</option>
+                  <option value="photographers">Photography &amp; Film</option>
+                  <option value="bridal-wear">Bridal Wear / Groom Wear</option>
+                  <option value="makeup">Bridal Makeup &amp; Hair</option>
+                  <option value="catering">Catering &amp; Bar Services</option>
+                  <option value="decor">Floral &amp; Mandap Decor</option>
+                  <option value="mehendi">Mehendi Artist</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Base City</label>
+                <input type="text" id="p-city" class="form-control" placeholder="e.g. Udaipur, Mumbai, Delhi" required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block btn-lg" id="partner-reg-btn">
+                Continue to Verification &rarr;
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Easy Steps Process (Direct Reference to Screenshot #1) -->
+      <div style="margin-bottom: 56px;">
+        <div class="text-center" style="margin-bottom: 36px;">
+          <span class="eyebrow">How It Works</span>
+          <h2>Get Onboarded in 3 Simple Steps</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="card" style="padding: 28px;">
+            <div style="display: flex; align-items: center; margin-bottom: 16px;">
+              <span class="step-badge">1</span>
+              <h3 style="font-size: 1.2rem;">Fill Your Profile</h3>
+            </div>
+            <p class="text-muted" style="font-size: 0.92rem;">
+              Provide business documentation, GSTIN, portfolio imagery, standard pricing tiers, and client testimonials.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 28px;">
+            <div style="display: flex; align-items: center; margin-bottom: 16px;">
+              <span class="step-badge">2</span>
+              <h3 style="font-size: 1.2rem;">Curator Verification</h3>
+            </div>
+            <p class="text-muted" style="font-size: 0.92rem;">
+              Our curation team reviews past weddings and conducts a brief 10-minute video verification to assure quality standards.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 28px;">
+            <div style="display: flex; align-items: center; margin-bottom: 16px;">
+              <span class="step-badge">3</span>
+              <h3 style="font-size: 1.2rem;">Receive Verified Leads</h3>
+            </div>
+            <p class="text-muted" style="font-size: 0.92rem;">
+              Your profile goes live in the collective directory with Price Beat badge eligibility and direct booking concierge inquiries.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vendor Live Profile Management Demo -->
+      <div id="vendor-dashboard-preview" style="display: none; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-medium); padding: 36px; margin-bottom: 48px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--color-border-light); flex-wrap: wrap; gap: 14px;">
+          <div>
+            <span class="badge-auspicious" style="margin-bottom: 6px; display: inline-block;">✓ Application Received</span>
+            <h2 id="dash-business-name" style="margin: 0; font-size: 1.7rem;">Your Business Dashboard</h2>
+            <span id="dash-category-city" class="text-muted text-sm">Wedding Partner Profile</span>
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="showToast('Profile draft saved to local sandbox', '✓')">Save Draft Profile</button>
+        </div>
+
+        <div class="grid-3" style="margin-bottom: 28px;">
+          <div class="budget-stat">
+            <div class="budget-stat-label">Inquiries Received (Demo)</div>
+            <div class="budget-stat-val" style="color: var(--color-primary);">14 New</div>
+          </div>
+          <div class="budget-stat">
+            <div class="budget-stat-label">Profile Views This Week</div>
+            <div class="budget-stat-val">382</div>
+          </div>
+          <div class="budget-stat">
+            <div class="budget-stat-label">Escrow Payout Status</div>
+            <div class="budget-stat-val" style="color: var(--color-success);">Active</div>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 20px;">
+          <h4 style="margin-bottom: 12px;">Active Client Inquiries Pipeline</h4>
+          <div style="overflow-x: auto;">
+            <table class="guest-table">
+              <thead>
+                <tr>
+                  <th>Client</th>
+                  <th>Wedding Date</th>
+                  <th>Ceremony Scope</th>
+                  <th>Estimated Budget</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Radhika &amp; Kunal</strong><br><span class="text-muted text-sm">+91 98200 45678</span></td>
+                  <td>21 Nov 2026</td>
+                  <td>Sangeet &amp; Wedding Pheras (400 Guests)</td>
+                  <td>₹12,50,000</td>
+                  <td><button class="btn btn-secondary btn-sm" onclick="showToast('Connected with couple via WhatsApp Concierge', '✓')">Contact</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Ananya &amp; Sahil</strong><br><span class="text-muted text-sm">+91 99100 87654</span></td>
+                  <td>04 Dec 2026</td>
+                  <td>Destination Royal Reception (600 Guests)</td>
+                  <td>₹28,00,000</td>
+                  <td><button class="btn btn-secondary btn-sm" onclick="showToast('Quote sent to couple dashboard', '✓')">Send Quote</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top: 0; border: none;">
+        <span>&copy; 2026 Vow &amp; Co. Partner Network.</span>
+        <div style="display: flex; gap: 20px;">
+          <a href="../index.html">Couple Homepage</a>
+          <a href="vendors.html">Vendor Directory</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    function handlePartnerRegister(e) {
+      e.preventDefault();
+      const name = document.getElementById('p-name').value;
+      const cat = document.getElementById('p-cat').options[document.getElementById('p-cat').selectedIndex].text;
+      const city = document.getElementById('p-city').value;
+
+      const btn = document.getElementById('partner-reg-btn');
+      btn.textContent = 'Setting up Partner Portal...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.textContent = 'Application Submitted';
+        showToast('Registration successful! Welcome to the Partner Suite.', '★');
+        
+        document.getElementById('dash-business-name').textContent = name;
+        document.getElementById('dash-category-city').textContent = `${cat} • ${city}`;
+        document.getElementById('vendor-dashboard-preview').style.display = 'block';
+        document.getElementById('vendor-dashboard-preview').scrollIntoView({ behavior: 'smooth' });
+      }, 800);
+    }
+  </script>
+</body>
+</html>

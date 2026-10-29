@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Planning Suite | Checklist, Budget &amp; Guests | Vow &amp; Co.</title>
+  <meta name="description" content="Manage your Indian wedding checklist, auto-calculating budget allocations, and guest list RSVP status in one cohesive suite.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-logo">
+        <span class="brand-name">Vow &amp; Co.</span>
+        <span class="brand-tagline">Curated Indian Weddings</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="vendors.html" class="nav-link">Find Vendors</a>
+        <a href="planner.html" class="nav-link active">Wedding Planner</a>
+        <a href="inspiration.html" class="nav-link">Inspiration &amp; Muhurat</a>
+        <a href="shortlist.html" class="nav-link">
+          Shortlist <span class="nav-badge shortlist-badge-count">0</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="onboarding.html" class="btn btn-outline btn-sm">Are you a Vendor?</a>
+        <a href="auth.html" class="btn btn-primary btn-sm header-cta">Couple Sign In</a>
+        <button class="menu-toggle" aria-label="Toggle navigation drawer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div class="drawer-header">
+      <span class="brand-name" style="font-size: 1.4rem;">Vow &amp; Co.</span>
+      <button class="drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="drawer-links">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="vendors.html" class="nav-link">Explore All Vendors</a>
+      <a href="planner.html" class="nav-link active">Checklist &amp; Budget Planner</a>
+      <a href="inspiration.html" class="nav-link">Wedding Ideas &amp; Muhurats</a>
+      <a href="shortlist.html" class="nav-link">Saved Shortlist (<span class="shortlist-badge-count">0</span>)</a>
+    </div>
+  </aside>
+
+  <main class="section-sm">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div style="margin-bottom: 28px;">
+        <span class="eyebrow">Interactive Suite</span>
+        <h1>Couple’s Wedding Planner</h1>
+        <p class="text-muted">Streamline ceremonies, vendor contracts, guest lists, and budgets with real-time browser synchronization.</p>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="planner-tabs">
+        <button class="planner-tab-btn active" data-tab="checklist">
+          <span>✓</span> Wedding Checklist
+        </button>
+        <button class="planner-tab-btn" data-tab="budget">
+          <span>₹</span> Budget Allocator &amp; Expense Tracker
+        </button>
+        <button class="planner-tab-btn" data-tab="guests">
+          <span>👥</span> Guest List &amp; RSVPs
+        </button>
+      </div>
+
+      <!-- PANE 1: WEDDING CHECKLIST -->
+      <div class="planner-content-pane active" id="pane-checklist">
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 32px; align-items: start;">
+          <div>
+            <!-- Progress Status -->
+            <div style="margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 8px;">
+                <span id="checklist-progress-text">Calculating milestones...</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="checklist-progress-bar" style="width: 30%;"></div>
+              </div>
+            </div>
+
+            <!-- Tasks List -->
+            <div id="checklist-container">
+              <!-- Rendered by js/planner.js -->
+            </div>
+          </div>
+
+          <!-- Add Task Sidebar Card -->
+          <div class="card" style="padding: 24px;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 16px;">Add New Milestone</h3>
+            <form id="add-task-form">
+              <div class="form-group">
+                <label class="form-label">Task Description</label>
+                <input type="text" id="new-task-input" class="form-control" placeholder="e.g. Confirm Safa &amp; Turban Draping Artist" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Milestone Category</label>
+                <select id="new-task-cat" class="form-control">
+                  <option value="Venue &amp; Stay">Venue &amp; Accommodations</option>
+                  <option value="Photography">Photography &amp; Film</option>
+                  <option value="Attire &amp; Jewelry">Attire &amp; Jewelry</option>
+                  <option value="Catering &amp; Bar">Catering &amp; Bar</option>
+                  <option value="Rituals &amp; Puja">Rituals &amp; Puja</option>
+                  <option value="Logistics">Logistics &amp; Travel</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Add Milestone to List</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 2: BUDGET ALLOCATOR & EXPENSE TRACKER -->
+      <div class="planner-content-pane" id="pane-budget">
+        <!-- Budget Stats Summary -->
+        <div class="budget-summary-card">
+          <div class="budget-stats-row">
+            <div class="budget-stat">
+              <div class="budget-stat-label">Total Wedding Budget</div>
+              <div class="budget-stat-val" id="stat-budget-total">₹0</div>
+            </div>
+            <div class="budget-stat">
+              <div class="budget-stat-label">Allocated to Categories</div>
+              <div class="budget-stat-val" id="stat-budget-allocated">₹0</div>
+            </div>
+            <div class="budget-stat">
+              <div class="budget-stat-label">Actual Spent / Paid</div>
+              <div class="budget-stat-val" id="stat-budget-spent">₹0</div>
+            </div>
+            <div class="budget-stat">
+              <div class="budget-stat-label">Remaining Safe Balance</div>
+              <div class="budget-stat-val" id="stat-budget-remaining">₹0</div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 12px; display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--color-text-muted);">
+            <span>Overall Expenditure Burn</span>
+            <span>Target: Within Budget</span>
+          </div>
+          <div class="progress-track" style="height: 12px;">
+            <div class="progress-fill" id="budget-progress-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 32px; align-items: start;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <h3 style="font-size: 1.3rem;">Category Breakdown</h3>
+              <span class="text-muted text-sm">Values update automatically</span>
+            </div>
+            <div id="budget-categories-list">
+              <!-- Rendered by js/planner.js -->
+            </div>
+          </div>
+
+          <div>
+            <!-- Master Budget Setter -->
+            <div class="card" style="padding: 24px; margin-bottom: 24px;">
+              <h4 style="margin-bottom: 12px;">Set Target Master Budget</h4>
+              <p class="text-muted text-sm" style="margin-bottom: 14px;">Adjust your global wedding budget ceiling in Indian Rupees.</p>
+              <div class="form-group">
+                <input type="number" id="total-budget-input" class="form-control" step="50000">
+              </div>
+            </div>
+
+            <!-- Add Category -->
+            <div class="card" style="padding: 24px;">
+              <h4 style="margin-bottom: 12px;">Add Spending Category</h4>
+              <form id="add-budget-cat-form">
+                <div class="form-group">
+                  <label class="form-label">Category Name</label>
+                  <input type="text" id="new-bcat-name" class="form-control" placeholder="e.g. Sangeet Artist Performance" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Initial Allocation (₹)</label>
+                  <input type="number" id="new-bcat-alloc" class="form-control" placeholder="e.g. 250000" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Add Category</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 3: GUEST LIST & RSVP MANAGER -->
+      <div class="planner-content-pane" id="pane-guests">
+        <div style="display: grid; grid-template-columns: 2.2fr 1fr; gap: 32px; align-items: start;">
+          <div>
+            <!-- Filter & Search Toolbar -->
+            <div class="filter-bar" style="margin-bottom: 20px; padding: 14px 18px;">
+              <div style="flex: 1; min-width: 200px; display: flex; align-items: center; gap: 8px;">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                <input type="text" id="guest-search-input" placeholder="Search family name or relation..." style="border: none; background: transparent; width: 100%; outline: none;">
+              </div>
+              <div>
+                <select id="guest-filter-side" class="form-control" style="width: auto; padding: 6px 12px; font-size: 0.88rem;">
+                  <option value="">All Family Sides</option>
+                  <option value="Bride">Bride’s Side</option>
+                  <option value="Groom">Groom’s Side</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="guest-stats-summary" class="text-muted text-sm" style="margin-bottom: 12px;"></div>
+
+            <!-- Guests Table -->
+            <div class="guest-table-wrap">
+              <table class="guest-table">
+                <thead>
+                  <tr>
+                    <th>Family / Invitee</th>
+                    <th>Side</th>
+                    <th>Seats</th>
+                    <th>RSVP Status</th>
+                    <th>Dietary Note</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="guest-table-body">
+                  <!-- Rendered by js/planner.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Add Guest Form -->
+          <div class="card" style="padding: 24px;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 16px;">Add Invitee</h3>
+            <form id="add-guest-form">
+              <div class="form-group">
+                <label class="form-label">Primary Guest / Family Name</label>
+                <input type="text" id="g-name" class="form-control" placeholder="e.g. Mr. &amp; Mrs. Singhania" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Relation / Group</label>
+                <input type="text" id="g-rel" class="form-control" placeholder="e.g. Groom’s School Best Friend" required>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="form-group">
+                  <label class="form-label">Side</label>
+                  <select id="g-side" class="form-control">
+                    <option value="Bride">Bride</option>
+                    <option value="Groom">Groom</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Seats / Count</label>
+                  <input type="number" id="g-count" class="form-control" value="2" min="1" max="20" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Dietary Preference</label>
+                <select id="g-diet" class="form-control">
+                  <option value="Pure Vegetarian">Pure Vegetarian</option>
+                  <option value="Jain (No Root Veg)">Jain (No Root Veg)</option>
+                  <option value="Non-Vegetarian">Non-Vegetarian</option>
+                  <option value="Vegan / Gluten-Free">Vegan / Gluten-Free</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Add to Guest Registry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top: 0; border: none;">
+        <span>&copy; 2026 Vow &amp; Co. Curated Indian Weddings.</span>
+        <div style="display: flex; gap: 20px;">
+          <a href="../index.html">Home</a>
+          <a href="vendors.html">Find Vendors</a>
+          <a href="inspiration.html">Inspiration</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/planner.js"></script>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vow & Co. | The Luxury Indian Wedding Marketplace & Editorial Concierge</title>
+  <meta name="description" content="Discover India's most prestigious royal palace venues, fine-art wedding photographers, couture ateliers, and bespoke planners with our Price Beat Guarantee.">
+  
+  <!-- Modern Typography from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Editorial Topbar -->
+  <aside class="topbar">
+    <div class="container">
+      <span>Exclusive Vivah Muhurat 2026/27 Concierge is now open.</span>
+      <a href="pages/inspiration.html#muhurat">Explore Auspicious Dates &rarr;</a>
+    </div>
+  </aside>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-name">Vow &amp; Co.</span>
+        <span class="brand-tagline">Curated Indian Weddings</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="pages/vendors.html" class="nav-link">Find Vendors</a>
+        <a href="pages/planner.html" class="nav-link">Wedding Planner</a>
+        <a href="pages/inspiration.html" class="nav-link">Inspiration &amp; Muhurat</a>
+        <a href="pages/shortlist.html" class="nav-link">
+          Shortlist <span class="nav-badge shortlist-badge-count">0</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="pages/onboarding.html" class="btn btn-outline btn-sm">Are you a Vendor?</a>
+        <a href="pages/auth.html" class="btn btn-primary btn-sm header-cta">Couple Sign In</a>
+        <button class="menu-toggle" aria-label="Toggle navigation drawer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div class="drawer-header">
+      <span class="brand-name" style="font-size: 1.4rem;">Vow &amp; Co.</span>
+      <button class="drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="drawer-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="pages/vendors.html" class="nav-link">Explore All Vendors</a>
+      <a href="pages/planner.html" class="nav-link">Checklist &amp; Budget Planner</a>
+      <a href="pages/inspiration.html" class="nav-link">Wedding Ideas &amp; Muhurats</a>
+      <a href="pages/shortlist.html" class="nav-link">Saved Shortlist (<span class="shortlist-badge-count">0</span>)</a>
+      <hr style="border: 0; border-top: 1px solid var(--color-border-light); margin: 12px 0;">
+      <a href="pages/onboarding.html" class="btn btn-outline btn-block">Vendor Partnership</a>
+      <a href="pages/auth.html" class="btn btn-primary btn-block">Couple Account</a>
+    </div>
+  </aside>
+
+  <!-- Main Homepage Content -->
+  <main>
+    <!-- Asymmetric Editorial Hero -->
+    <section class="editorial-hero">
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <span class="eyebrow">The Editorial Wedding Collective</span>
+          <h1 class="hero-title">Curating India’s most <em>unforgettable</em> celebrations.</h1>
+          <p class="hero-subtitle">
+            Direct access to heritage palace ballrooms, legendary fine-art cinematographers, and heirloom bridal couturiers — safeguarded by our transparent Price Beat Guarantee.
+          </p>
+
+          <!-- Search Widget -->
+          <div class="hero-search-bar" id="homepage-search-form">
+            <div class="search-field">
+              <span class="search-label">Looking For</span>
+              <select class="search-select" id="hero-category-select">
+                <option value="">All Vendor Specialties</option>
+                <option value="venues">Wedding Venues &amp; Palaces</option>
+                <option value="photographers">Photographers &amp; Cinema</option>
+                <option value="bridal-wear">Bridal Couture &amp; Sherwanis</option>
+                <option value="makeup">Bridal Makeup &amp; Styling</option>
+                <option value="decor">Floral Scenography</option>
+                <option value="catering">Gourmet Catering</option>
+              </select>
+            </div>
+            <div class="search-field">
+              <span class="search-label">Location / City</span>
+              <input type="text" class="search-input" id="hero-city-input" placeholder="e.g. Jaipur, Udaipur, Mumbai...">
+            </div>
+            <button class="btn btn-primary" onclick="executeHeroSearch()">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+              <span>Discover</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Editorial Hero Photography Composition -->
+        <div class="hero-composition">
+          <div class="hero-photo-main">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80" alt="Regal Palace Wedding Venue" loading="eager">
+          </div>
+          <div class="hero-photo-secondary">
+            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Indian Bride in Royal Couture" loading="eager">
+          </div>
+          <div class="hero-floating-stat">
+            <div class="stat-icon">👑</div>
+            <div>
+              <div class="stat-number">2,400+</div>
+              <div class="stat-label">Verified Royal Artisans</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curated Categories Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header flex-between">
+          <div>
+            <span class="eyebrow">Explore Collections</span>
+            <h2 class="section-title">The Essential Wedding Specialties</h2>
+            <p class="section-subtitle">Every craft and ceremonial expert required for your multi-day affair.</p>
+          </div>
+          <a href="pages/vendors.html" class="btn btn-secondary btn-sm">Browse Directory &rarr;</a>
+        </div>
+
+        <div class="grid-4" id="category-grid-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Elite Vendors -->
+    <section class="section" style="background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="container">
+        <div class="section-header flex-between">
+          <div>
+            <span class="eyebrow">Handpicked Artisans</span>
+            <h2 class="section-title">Featured Royal Partners</h2>
+            <p class="section-subtitle">India's most sought-after wedding creators with verified testimonials.</p>
+          </div>
+          <a href="pages/vendors.html" class="btn btn-outline btn-sm">View All 1,420+ Vendors</a>
+        </div>
+
+        <div class="grid-3" id="featured-vendors-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Editorial Feature: The Vow & Co. Price Beat Challenge -->
+    <section class="section">
+      <div class="container">
+        <div class="feature-banner">
+          <div class="banner-grid">
+            <div>
+              <span class="eyebrow">Fair Price Assurance</span>
+              <h2 style="margin-bottom: 16px; font-size: 2.2rem;">The Price Beat Challenge</h2>
+              <p class="lead" style="margin-bottom: 24px;">
+                We negotiate directly with heritage properties and elite vendors on your behalf. If you receive a lower quote directly from the venue, <strong>Vow &amp; Co. will not only match the rate, but also award an additional discount tier directly onto your master bill.</strong>
+              </p>
+              <ul style="margin-bottom: 28px; display: flex; flex-direction: column; gap: 12px; font-size: 0.95rem;">
+                <li style="display: flex; gap: 10px; align-items: center;">
+                  <span style="color: var(--color-success); font-weight: bold;">✓</span> 100% price transparency with zero hidden venue surcharges
+                </li>
+                <li style="display: flex; gap: 10px; align-items: center;">
+                  <span style="color: var(--color-success); font-weight: bold;">✓</span> Dedicated Relationship Executive stationed on your wedding dates
+                </li>
+                <li style="display: flex; gap: 10px; align-items: center;">
+                  <span style="color: var(--color-success); font-weight: bold;">✓</span> Written guarantees honored within 48 business hours
+                </li>
+              </ul>
+              <button class="btn btn-primary" onclick="openEnquiryModal('Price Beat Concierge')">Submit Quote for Verification</button>
+            </div>
+
+            <div>
+              <table class="tier-table">
+                <thead>
+                  <tr>
+                    <th>Total Quote Value</th>
+                    <th>Applicable Guaranteed Cash Credit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>₹10 Lakhs – ₹19.99 Lakhs</td>
+                    <td class="discount-highlight">₹25,000 off</td>
+                  </tr>
+                  <tr>
+                    <td>₹20 Lakhs – ₹34.99 Lakhs</td>
+                    <td class="discount-highlight">₹50,000 off</td>
+                  </tr>
+                  <tr>
+                    <td>₹35 Lakhs – ₹69.99 Lakhs</td>
+                    <td class="discount-highlight">₹75,000 off</td>
+                  </tr>
+                  <tr>
+                    <td>₹70 Lakhs – ₹99.99 Lakhs</td>
+                    <td class="discount-highlight">₹1,00,000 off</td>
+                  </tr>
+                  <tr>
+                    <td>₹1 Crore &amp; Above</td>
+                    <td class="discount-highlight">₹2,00,000 cash credit</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destination Wedding Guides -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="section-header flex-between">
+          <div>
+            <span class="eyebrow">Scenic Havens</span>
+            <h2 class="section-title">Iconic Wedding Destinations</h2>
+            <p class="section-subtitle">From serene Rajasthani lakes to sun-kissed Goan coastlines.</p>
+          </div>
+          <a href="pages/vendors.html?city=Rajasthan" class="btn btn-ghost btn-sm">Explore All Regions &rarr;</a>
+        </div>
+
+        <div class="grid-4" id="destinations-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Wedding Inspiration & Vedic Muhurat Preview -->
+    <section class="section" style="background-color: var(--color-surface-subtle); border-top: 1px solid var(--color-border);">
+      <div class="container">
+        <div class="section-header flex-between">
+          <div>
+            <span class="eyebrow">Editorial Journal</span>
+            <h2 class="section-title">Inspiration, Traditions &amp; Muhurats</h2>
+            <p class="section-subtitle">Thoughtful perspectives on planning an authentic Indian wedding.</p>
+          </div>
+          <a href="pages/inspiration.html" class="btn btn-secondary btn-sm">Read All Articles</a>
+        </div>
+
+        <div class="grid-3" id="journal-articles-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Partner Onboarding CTA Strip -->
+    <section class="section-sm" style="background: linear-gradient(135deg, #783B49 0%, #4D212B 100%); color: #FFFFFF;">
+      <div class="container flex-between" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
+        <div>
+          <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-secondary);">Partner With Us</span>
+          <h3 style="color: #FFFFFF; font-size: 1.8rem; margin: 6px 0;">Are you a luxury wedding artisan or venue director?</h3>
+          <p style="color: rgba(255, 255, 255, 0.8); max-width: 580px; font-size: 0.95rem;">
+            Join over 2,400+ handpicked Indian wedding businesses. Receive qualified high-intent inquiries from couples across India and the diaspora.
+          </p>
+        </div>
+        <div style="display: flex; gap: 14px;">
+          <a href="pages/onboarding.html" class="btn btn-gold btn-lg">Apply for Verification</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Editorial Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="brand-name">Vow &amp; Co.</span>
+          <span class="brand-tagline">Curated Indian Weddings</span>
+          <p class="footer-desc">
+            A human-centered marketplace crafted for couples seeking authentic elegance, refined vendor discovery, and transparent price integrity.
+          </p>
+          <div style="font-size: 0.82rem; color: rgba(255,255,255,0.6);">
+            Registered Offices: Nariman Point, Mumbai &bull; Indiranagar, Bengaluru
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Marketplace</h4>
+          <ul class="footer-links">
+            <li><a href="pages/vendors.html?cat=venues">Palace Venues</a></li>
+            <li><a href="pages/vendors.html?cat=photographers">Photographers &amp; Cinema</a></li>
+            <li><a href="pages/vendors.html?cat=bridal-wear">Bridal Couture</a></li>
+            <li><a href="pages/vendors.html?cat=decor">Floral &amp; Mandap Decor</a></li>
+            <li><a href="pages/vendors.html?cat=mehendi">Mehendi Artisans</a></li>
+            <li><a href="pages/vendors.html">All Vendor Categories</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Planning Tools</h4>
+          <ul class="footer-links">
+            <li><a href="pages/planner.html#checklist">Wedding Checklist</a></li>
+            <li><a href="pages/planner.html#budget">Budget Allocator</a></li>
+            <li><a href="pages/planner.html#guests">Guest List &amp; RSVPs</a></li>
+            <li><a href="pages/inspiration.html#muhurat">Vivah Muhurat Calendar</a></li>
+            <li><a href="pages/shortlist.html">Saved Shortlist</a></li>
+            <li><a href="pages/onboarding.html">Vendor Onboarding</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Concierge &amp; Care</h4>
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <span>Level 4, The Chambers, Bandra Kurla Complex, Mumbai 400051</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <span>+91 (022) 6982 4400 / +91 98200 12345</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>✉️</span>
+            <span>concierge@vowandco.in</span>
+          </div>
+          <a href="pages/inspiration.html" class="btn btn-outline btn-sm" style="color: #FFFFFF; border-color: rgba(255,255,255,0.3); margin-top: 12px; display: inline-block;">
+            Download 2026/27 Planning Guide
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Vow &amp; Co. Technologies Private Limited. All rights reserved.</span>
+        <div style="display: flex; gap: 24px;">
+          <a href="#" onclick="showToast('Privacy Policy: All couple data is strictly encrypted.'); return false;">Privacy Policy</a>
+          <a href="#" onclick="showToast('Client Protection: Advance payments held in neutral escrow until service confirmation.'); return false;">Escrow Protection</a>
+          <a href="#" onclick="showToast('Price Beat terms: Applicable for identical dates & inclusions.'); return false;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Homepage initialization
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Render Categories
+      const catContainer = document.getElementById('category-grid-container');
+      if (catContainer && VOW_DATA.categories) {
+        catContainer.innerHTML = VOW_DATA.categories.map(cat => `
+          <a href="pages/vendors.html?category=${cat.id}" class="category-card">
+            <div class="category-icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="${cat.icon}"/></svg>
+            </div>
+            <div class="category-name">${cat.name}</div>
+            <div class="category-count">${cat.count}</div>
+          </a>
+        `).join('');
+      }
+
+      // 2. Render Featured Vendors
+      const featuredContainer = document.getElementById('featured-vendors-container');
+      if (featuredContainer && VOW_DATA.vendors) {
+        const featured = VOW_DATA.vendors.filter(v => v.featured).slice(0, 3);
+        featuredContainer.innerHTML = featured.map(v => renderVendorCard(v)).join('');
+      }
+
+      // 3. Render Destinations
+      const destContainer = document.getElementById('destinations-container');
+      if (destContainer && VOW_DATA.destinations) {
+        destContainer.innerHTML = VOW_DATA.destinations.map(d => `
+          <div class="destination-card" onclick="window.location.href='pages/vendors.html?search=${encodeURIComponent(d.name.split(',')[0])}'">
+            <img src="${d.image}" alt="${d.name}" loading="lazy">
+            <div class="destination-overlay">
+              <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-secondary);">${d.tag}</span>
+              <h3 class="destination-name">${d.name}</h3>
+              <span class="destination-info">${d.count}</span>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // 4. Render Journal Articles
+      const articlesContainer = document.getElementById('journal-articles-container');
+      if (articlesContainer && VOW_DATA.articles) {
+        articlesContainer.innerHTML = VOW_DATA.articles.map(art => `
+          <article class="card">
+            <div class="card-img-wrap" style="aspect-ratio: 16/9;">
+              <img src="${art.image}" alt="${art.title}" loading="lazy">
+              <span class="card-badge">${art.category}</span>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span>${art.date}</span>
+                <span>${art.readTime}</span>
+              </div>
+              <h3 class="card-title" style="font-size: 1.18rem;">
+                <a href="pages/inspiration.html?id=${art.id}">${art.title}</a>
+              </h3>
+              <p class="card-desc">${art.excerpt}</p>
+              <a href="pages/inspiration.html?id=${art.id}" style="color: var(--color-primary); font-weight: 600; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 4px;">
+                Read Article &rarr;
+              </a>
+            </div>
+          </article>
+        `).join('');
+      }
+    });
+
+    function executeHeroSearch() {
+      const cat = document.getElementById('hero-category-select').value;
+      const city = document.getElementById('hero-city-input').value.trim();
+      let queryParams = [];
+      if (cat) queryParams.push(`category=${encodeURIComponent(cat)}`);
+      if (city) queryParams.push(`search=${encodeURIComponent(city)}`);
+      const url = 'pages/vendors.html' + (queryParams.length ? '?' + queryParams.join('&') : '');
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>

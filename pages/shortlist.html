@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Saved Vendors &amp; Shortlist | Vow &amp; Co.</title>
+  <meta name="description" content="Manage and compare your shortlisted wedding venues, photographers, and couturiers.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-logo">
+        <span class="brand-name">Vow &amp; Co.</span>
+        <span class="brand-tagline">Curated Indian Weddings</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="vendors.html" class="nav-link">Find Vendors</a>
+        <a href="planner.html" class="nav-link">Wedding Planner</a>
+        <a href="inspiration.html" class="nav-link">Inspiration &amp; Muhurat</a>
+        <a href="shortlist.html" class="nav-link active">
+          Shortlist <span class="nav-badge shortlist-badge-count">0</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="onboarding.html" class="btn btn-outline btn-sm">Are you a Vendor?</a>
+        <a href="auth.html" class="btn btn-primary btn-sm header-cta">Couple Sign In</a>
+        <button class="menu-toggle" aria-label="Toggle navigation drawer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div class="drawer-header">
+      <span class="brand-name" style="font-size: 1.4rem;">Vow &amp; Co.</span>
+      <button class="drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="drawer-links">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="vendors.html" class="nav-link">Explore All Vendors</a>
+      <a href="planner.html" class="nav-link">Checklist &amp; Budget Planner</a>
+      <a href="inspiration.html" class="nav-link">Wedding Ideas &amp; Muhurats</a>
+      <a href="shortlist.html" class="nav-link active">Saved Shortlist (<span class="shortlist-badge-count">0</span>)</a>
+    </div>
+  </aside>
+
+  <main class="section-sm">
+    <div class="container">
+      <div class="section-header flex-between">
+        <div>
+          <span class="eyebrow">Your Curation</span>
+          <h1>Saved Vendors &amp; Shortlist</h1>
+          <p class="text-muted">Review, compare and submit multi-vendor inquiries in one click.</p>
+        </div>
+        <div style="display: flex; gap: 12px;">
+          <button class="btn btn-primary" onclick="openEnquiryModal('All Shortlisted Partners')">
+            Inquire With All Shortlisted
+          </button>
+          <button class="btn btn-outline" onclick="clearAllShortlist()">Clear All</button>
+        </div>
+      </div>
+
+      <div class="grid-3" id="shortlist-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top: 0; border: none;">
+        <span>&copy; 2026 Vow &amp; Co. Curated Indian Weddings.</span>
+        <div style="display: flex; gap: 20px;">
+          <a href="../index.html">Home</a>
+          <a href="vendors.html">Find Vendors</a>
+          <a href="planner.html">Planning Suite</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', renderShortlistPage);
+
+    function renderShortlistPage() {
+      const savedIds = ShortlistManager.getSavedIds();
+      const grid = document.getElementById('shortlist-grid');
+      if (!grid) return;
+
+      const savedVendors = VOW_DATA.vendors.filter(v => savedIds.includes(v.id));
+
+      if (savedVendors.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; padding: 70px 20px; text-align: center; background: var(--color-surface); border-radius: var(--radius-medium); border: 1px dashed var(--color-border);">
+            <div style="font-size: 3rem; margin-bottom: 12px; color: var(--color-primary);">♡</div>
+            <h3 style="margin-bottom: 8px;">Your shortlist is currently empty</h3>
+            <p class="text-muted" style="max-width: 480px; margin: 0 auto 24px;">
+              As you browse venues and artisans, click the heart icon on any card to curate your personalized wedding portfolio.
+            </p>
+            <a href="vendors.html" class="btn btn-primary">Discover Royal Vendors</a>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = savedVendors.map(v => {
+        let card = renderVendorCard(v);
+        // Fix relative link paths
+        return card.replace(/href="pages\/vendor-details\.html/g, 'href="vendor-details.html');
+      }).join('');
+    }
+
+    // Override toggle callback to re-render page
+    const originalToggle = toggleVendorShortlist;
+    toggleVendorShortlist = function(id, btnElement) {
+      originalToggle(id, btnElement);
+      renderShortlistPage();
+    };
+
+    function clearAllShortlist() {
+      if (confirm('Clear all vendors from your shortlist?')) {
+        StorageHelper.set('saved_vendors', []);
+        ShortlistManager.updateBadges();
+        renderShortlistPage();
+        showToast('Shortlist cleared', '✓');
+      }
+    }
+  </script>
+</body>
+</html>

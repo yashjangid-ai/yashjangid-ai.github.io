@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curated Wedding Artisans &amp; Venues | Vow &amp; Co.</title>
+  <meta name="description" content="Search verified palace resorts, bridal makeup artists, fine-art wedding photographers, and catering teams across India.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-logo">
+        <span class="brand-name">Vow &amp; Co.</span>
+        <span class="brand-tagline">Curated Indian Weddings</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="vendors.html" class="nav-link active">Find Vendors</a>
+        <a href="planner.html" class="nav-link">Wedding Planner</a>
+        <a href="inspiration.html" class="nav-link">Inspiration &amp; Muhurat</a>
+        <a href="shortlist.html" class="nav-link">
+          Shortlist <span class="nav-badge shortlist-badge-count">0</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="onboarding.html" class="btn btn-outline btn-sm">Are you a Vendor?</a>
+        <a href="auth.html" class="btn btn-primary btn-sm header-cta">Couple Sign In</a>
+        <button class="menu-toggle" aria-label="Toggle navigation drawer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div class="drawer-header">
+      <span class="brand-name" style="font-size: 1.4rem;">Vow &amp; Co.</span>
+      <button class="drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="drawer-links">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="vendors.html" class="nav-link active">Explore All Vendors</a>
+      <a href="planner.html" class="nav-link">Checklist &amp; Budget Planner</a>
+      <a href="inspiration.html" class="nav-link">Wedding Ideas &amp; Muhurats</a>
+      <a href="shortlist.html" class="nav-link">Saved Shortlist (<span class="shortlist-badge-count">0</span>)</a>
+      <hr style="border: 0; border-top: 1px solid var(--color-border-light); margin: 12px 0;">
+      <a href="onboarding.html" class="btn btn-outline btn-block">Vendor Partnership</a>
+      <a href="auth.html" class="btn btn-primary btn-block">Couple Account</a>
+    </div>
+  </aside>
+
+  <main class="section-sm">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div style="margin-bottom: 32px;">
+        <span class="eyebrow">The Collective Directory</span>
+        <h1 style="margin-bottom: 8px;">Explore Verified Wedding Partners</h1>
+        <p class="text-muted">Hand-selected luxury artisans, heritage palaces, and production masters across India.</p>
+      </div>
+
+      <!-- Functional Filter and Search Bar -->
+      <div class="filter-bar">
+        <div style="flex: 1; min-width: 240px; display: flex; align-items: center; gap: 8px; background: var(--color-background); padding: 8px 14px; border-radius: var(--radius-small); border: 1px solid var(--color-border);">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+          <input type="text" id="vendor-search-input" placeholder="Search by name, palace, or style..." style="border: none; background: transparent; width: 100%; outline: none; font-size: 0.95rem;">
+        </div>
+
+        <div class="filter-group">
+          <!-- Category Filter -->
+          <select id="filter-category" class="form-control" style="width: auto; padding: 8px 14px;">
+            <option value="">All Categories</option>
+            <option value="venues">Wedding Venues</option>
+            <option value="photographers">Photographers &amp; Cinema</option>
+            <option value="bridal-wear">Bridal Couture</option>
+            <option value="makeup">Bridal Makeup</option>
+            <option value="decor">Floral &amp; Mandap Decor</option>
+            <option value="mehendi">Mehendi Artisans</option>
+            <option value="catering">Gourmet Catering</option>
+          </select>
+
+          <!-- City Filter -->
+          <select id="filter-city" class="form-control" style="width: auto; padding: 8px 14px;">
+            <option value="">All Destinations</option>
+          </select>
+
+          <!-- Sort Select -->
+          <select id="vendor-sort" class="form-control" style="width: auto; padding: 8px 14px;">
+            <option value="featured">Sort: Featured Artisans</option>
+            <option value="rating-desc">Sort: Highest Rated</option>
+            <option value="price-asc">Sort: Price (Low to High)</option>
+            <option value="price-desc">Sort: Price (High to Low)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Extra Filter Tags / Checkbox -->
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; cursor: pointer; user-select: none;">
+            <input type="checkbox" id="filter-price-beat" class="custom-checkbox" onchange="applyFilters()">
+            <span>Show only <strong>Price Beat Challenge</strong> eligible vendors</span>
+          </label>
+        </div>
+        <div id="vendor-results-count" class="text-muted text-sm">Showing results...</div>
+      </div>
+
+      <!-- Vendors Grid -->
+      <div class="grid-3" id="vendors-grid">
+        <!-- Rendered by js/vendors.js -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top: 0; border: none;">
+        <span>&copy; 2026 Vow &amp; Co. Curated Indian Weddings.</span>
+        <div style="display: flex; gap: 20px;">
+          <a href="../index.html">Home</a>
+          <a href="planner.html">Planning Suite</a>
+          <a href="inspiration.html">Inspiration</a>
+          <a href="onboarding.html">Vendor Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/vendors.js"></script>
+  <script>
+    // Adjust paths for vendor card generation on subpages
+    const originalRender = renderVendorCard;
+    renderVendorCard = function(vendor) {
+      const cardHtml = originalRender(vendor);
+      // adjust link paths from 'pages/vendor-details.html' to 'vendor-details.html'
+      return cardHtml.replace(/href="pages\/vendor-details\.html/g, 'href="vendor-details.html');
+    };
+  </script>
+</body>
+</html>
